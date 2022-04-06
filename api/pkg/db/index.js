@@ -17,4 +17,4 @@ mongoose.connect(
         }
         console.log('Successfully connected to DB.')
     }
-)
+);

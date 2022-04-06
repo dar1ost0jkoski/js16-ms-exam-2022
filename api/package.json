@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "experss": "^0.0.1-security",
     "express": "^4.17.3",
     "mongoose": "^6.2.10",
     "node-input-validator": "^4.5.0"
