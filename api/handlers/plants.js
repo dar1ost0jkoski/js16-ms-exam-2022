@@ -1,4 +1,5 @@
 const plants = require('../pkg/plants');
+const validator = require('../pkg/plants/validate')
 
 const getAll = async (req, res) => {
     try {
@@ -22,6 +23,7 @@ const getOneById = async (req, res) => {
 
 const create = async (req, res) => {
     try {
+        await validator.validate(req.body, validator.Plant);
         let plt = await plants.addPlant(req.body);
         return res.status(201).send(plt);
     } catch (err) {
@@ -32,6 +34,7 @@ const create = async (req, res) => {
 
 const update = async (req, res) => {
     try {
+        await validator.validate(req.body, validator.Plant);
         await plants.updatePlant(req.params.id, req.body);
         return res.status(204).send('');
     } catch (err) {
@@ -42,6 +45,7 @@ const update = async (req, res) => {
 
 const updatePartial = async (req, res) => {
     try {
+        await validator.validate(req.body, validator.PlantPartial);
         await plants.updatePlant(req.params.id, req.body);
         return res.status(204).send('');
     } catch (err) {
